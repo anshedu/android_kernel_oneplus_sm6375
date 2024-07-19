@@ -469,7 +469,7 @@ int oplus_chg_backup_soc(int backup_soc)
 	return rc;
 }
 
-#ifdef CONFIG_OPLUS_FEATURE_CHG_MISC
+#ifdef defined(OPLUS_FEATURE_POWERINFO_FTM) && defined(CONFIG_OPLUS_POWERINFO_FTM)
 extern bool ext_boot_with_console(void);
 #endif
 
@@ -542,7 +542,7 @@ static int oplus_chg_2uart_pinctrl_init(struct oplus_chg_chip *chip)
 		return -EINVAL;
 	}
 
-#ifdef CONFIG_OPLUS_FEATURE_CHG_MISC
+#if defined(OPLUS_FEATURE_POWERINFO_FTM) && defined(CONFIG_OPLUS_POWERINFO_FTM)
 	if (!ext_boot_with_console())
 		pinctrl_select_state(chg->chg_2uart_pinctrl, chg->chg_2uart_sleep);
 #endif
