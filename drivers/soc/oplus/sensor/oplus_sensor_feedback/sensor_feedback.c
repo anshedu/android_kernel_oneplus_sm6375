@@ -239,6 +239,7 @@ static inline u64 get_time_in_msec(u64 counter)
 	do_div(counter, (MSM_ARCH_TIMER_FREQ/MSEC_PER_SEC));
 	return counter;
 }
+EXPORT_SYMBOL(get_time_in_msec);
 
 static u64 oplus_rpmh_master_get_sleeptime(struct msm_rpmh_master_stats *record)
 {
