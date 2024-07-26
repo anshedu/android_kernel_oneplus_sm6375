@@ -50,7 +50,7 @@
 #define OPE_CMDS                  OPE_MAX_CMD_BUFS
 #define CAM_MAX_IN_RES            8
 
-#ifndef OPLUS_FEATURE_CAMERA_COMMON
+#ifdef OPLUS_FEATURE_CAMERA_COMMON
 #define OPE_MAX_CDM_BLS           24
 #else
 #define OPE_MAX_CDM_BLS           32
