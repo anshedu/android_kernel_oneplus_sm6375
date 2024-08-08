@@ -469,7 +469,7 @@ int oplus_chg_backup_soc(int backup_soc)
 	return rc;
 }
 
-#ifdef defined(OPLUS_FEATURE_POWERINFO_FTM) && defined(CONFIG_OPLUS_POWERINFO_FTM)
+#if defined(OPLUS_FEATURE_POWERINFO_FTM) && defined(CONFIG_OPLUS_POWERINFO_FTM)
 extern bool ext_boot_with_console(void);
 #endif
 
