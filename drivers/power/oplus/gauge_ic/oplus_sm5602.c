@@ -1662,12 +1662,12 @@ static int fg_get_property(struct power_supply *psy, enum power_supply_property 
 		mutex_lock(&sm->data_lock);
 		if (ret > 0)
 			sm->batt_temp = ret;
-	if (sm->temp_param.batt_temp >= -20 && sm->temp_param.batt_temp <= 80)
-		val->intval = sm->temp_param.batt_temp_avg * 10; /* 1.0degree = 10 */
-	else if (sm->temp_param.batt_temp == -EINVAL)
-		val->intval = sm->batt_temp * 10;
-	else
-		val->intval = SM5602_DEFAULT_TEMP;
+		if (sm->temp_param.batt_temp >= -20 && sm->temp_param.batt_temp <= 80)
+			val->intval = sm->temp_param.batt_temp_avg * 10; /* 1.0degree = 10 */
+		else if (sm->temp_param.batt_temp == -EINVAL)
+			val->intval = sm->batt_temp * 10;
+		else
+			val->intval = SM5602_DEFAULT_TEMP;
 		mutex_unlock(&sm->data_lock);
 		break;
 	case POWER_SUPPLY_PROP_CHARGE_FULL:
